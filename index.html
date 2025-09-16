@@ -57,6 +57,11 @@
 							<input type='checkbox' id='chk-show-offscreen' autocomplete='off'>
 							<label for='chk-show-offscreen'>Show offscreen</label>
 						</div>
+
+						<div class='checkbox-wrapper'>
+							<input type='text' id='img-folder' value="img">
+							<label for='img-folder'>Image folder</label>
+						</div>
 					</div>
 				</div>
 
@@ -94,27 +99,27 @@
 				<div id='editor'>
 					<div>
 						<span>X</span>
-						<input type='range' max=1 step=0.00001 id='x-range'>
+						<input type='range' max=1 id='x-range'>
 						<input type='number' step=any id='x-number'>
 						<button onclick='flipXcoord()'>Flip</button>
 					</div>
 
 					<div>
 						<span>Y</span>
-						<input type='range' max=1 step=0.00001 id='y-range'>
+						<input type='range' max=1 id='y-range'>
 						<input type='number' step=any id='y-number'>
 					</div>
 
 					<div>
 						<span>W</span>
-						<input type='range' max=1 step=0.00001 id='w-range'>
+						<input type='range' max=1 id='w-range'>
 						<input type='number' step=any id='w-number'>
 						<button id='norm-width' onclick='normalizeWidth()'>Quad</button>
 					</div>
 
 					<div>
 						<span>H</span>
-						<input type='range' max=1 step=0.00001 id='h-range'>
+						<input type='range' max=1 id='h-range'>
 						<input type='number' step=any id='h-number'>
 						<button id='norm-height' onclick='normalizeHeight()'>Quad</button>
 					</div>
@@ -200,7 +205,7 @@
 							</td>
 
 							<td>
-								<input type='number' step=0.01 id='range_mod_property'>
+								<input type='number' id='range_mod_property'>
 							</td>
 						</tr>
 
@@ -210,18 +215,17 @@
 							</td>
 
 							<td>
-								<input type='number' step=0.01 id='alpha_mod_property'>
+								<input type='number' id='alpha_mod_property'>
 							</td>
 						</tr>
 
 						<tr class='js-additional-button-property hidden'>
 							<td>
-								<label for='saturate_pct_property' class='notranslate'
-									translate='no'>saturate_pct</label>
+								<label for='saturate_pct_property' class='notranslate' translate='no'>saturate_pct</label>
 							</td>
 
 							<td>
-								<input type='number' step=0.01 id='saturate_pct_property'>
+								<input type='number' id='saturate_pct_property'>
 							</td>
 						</tr>
 
@@ -274,16 +278,13 @@
 						<label>Overlay name</label>
 						<input type='text' id='overlay-name' class='js-dialog__focus' autocomplete='off'>
 						<br class='wide'>
-						<input type='checkbox' autocomplete='off' id='chk-edit-overlay'
-							onchange='updateNewOverlayFields()'>
+						<input type='checkbox' autocomplete='off' id='chk-edit-overlay' onchange='updateNewOverlayFields()'>
 						<label for='chk-edit-overlay' class='group-header'>Edit current overlay</label>
 						<br class='wide'>
-						<input type='checkbox' autocomplete='off' id='chk-duplicate-overlay'
-							onchange='updateNewOverlayFields()'>
+						<input type='checkbox' autocomplete='off' id='chk-duplicate-overlay' onchange='updateNewOverlayFields()'>
 						<label for='chk-duplicate-overlay'>Duplicate current overlay</label>
 						<br class='wide'>
-						<input type='checkbox' autocomplete='off' id='chk-portrait-overlay'
-							onchange='updateNewOverlayFields()'>
+						<input type='checkbox' autocomplete='off' id='chk-portrait-overlay' onchange='updateNewOverlayFields()'>
 						<label for='chk-portrait-overlay'>Portrait</label>
 					</div>
 					<div class='dialog-content-box__section'>
@@ -316,9 +317,9 @@
 					<div class='dialog-content-box__section'>
 						<span class='group-header'>Initial aspect ratio</span>
 						<br class='wide'>
-						<input type='number' step=0.00001 id='initial-aspect-width' value=16>
+						<input type='number' id='initial-aspect-width' value=16>
 						<span>:</span>
-						<input type='number' step=0.00001 id='initial-aspect-height' value=9>
+						<input type='number' id='initial-aspect-height' value=9>
 					</div>
 
 					<div class='dialog-content-box__section'>
@@ -332,8 +333,7 @@
 					<div class='dialog-content-box__section'>
 						<input type='checkbox' id='chk-keep-relative' autocomplete='off'>
 						<label for='chk-keep-relative'>Keep relative positions</label>
-						<button class='empty button--normal-size'
-							onclick='showDialog("aspect-hint-dialog", true)'>?</button>
+						<button class='empty button--normal-size' onclick='showDialog("aspect-hint-dialog", true)'>?</button>
 					</div>
 				</div>
 				<div class='modal-dialog__footer-box'>
@@ -354,9 +354,9 @@
 					<div class='dialog-content-box__section'>
 						<span class='group-header'>Screen dimensions</span>
 						<br class='wide'>
-						<input type='number' id='display-width' step=0.00001 class='js-dialog__focus'>
+						<input type='number' id='display-width' class='js-dialog__focus'>
 						<span>x</span>
-						<input type='number' id='display-height' step=0.00001>
+						<input type='number' id='display-height'>
 						<br class='wide'>
 						<input type='checkbox' id='chk-rescale-to-fit' autocomplete='off'>
 						<label for='chk-rescale-to-fit'>Rescale to fit editor window</label>
@@ -366,16 +366,14 @@
 						<button class='empty expander button--normal-size' id='screenshot-settings-expander'
 							onclick='toggleScreenshotSettings()'>Screenshot area</button>
 						<div id='screenshot-area-settings' class='dialog-content-box__expandable hidden'>
-							<input type='number' id='screenshot-width' step=0.00001>
+							<input type='number' id='screenshot-width'>
 							<span>x</span>
-							<input type='number' id='screenshot-height' step=0.00001>
+							<input type='number' id='screenshot-height'>
 							<br class='wide'>
-							<input type='radio' onchange='onScreenshotModeChange()' id='radio-screenshot-fit'
-								name='screenshot-mode'>
+							<input type='radio' onchange='onScreenshotModeChange()' id='radio-screenshot-fit' name='screenshot-mode'>
 							<label for='radio-screenshot-fit'>Fit screen</label>
 							<br class='narrow'>
-							<input type='radio' onchange='onScreenshotModeChange()' id='radio-screenshot-set'
-								name='screenshot-mode'>
+							<input type='radio' onchange='onScreenshotModeChange()' id='radio-screenshot-set' name='screenshot-mode'>
 							<label for='radio-screenshot-set'>Exact size</label>
 							<br class='narrow'>
 							<input type='radio' onchange='onScreenshotModeChange()' id='radio-screenshot-match'
@@ -446,14 +444,12 @@
 
 						<tr>
 							<td>
-								<button class='empty' id='export-button' onclick='createDownloadLink()'><a
-										id='export-link' download='new-retropad.cfg' href=''>Export config</a></button>
-								<button class="empty button--normal-size"
-									onclick='showDialog("export-hint-dialog", true)'>?</button>
+								<button class='empty' id='export-button' onclick='createDownloadLink()'><a id='export-link'
+										download='new-retropad.cfg' href=''>Export config</a></button>
+								<button class="empty button--normal-size" onclick='showDialog("export-hint-dialog", true)'>?</button>
 							</td>
 							<td>
-								<a
-									href='https://github.com/Valent-in/retropad-editor/releases/download/v0.6/overlay-images.zip'>
+								<a href='https://github.com/Valent-in/retropad-editor/releases/download/v0.6/overlay-images.zip'>
 									Image pack
 								</a>
 							</td>
@@ -488,8 +484,7 @@
 							rel='noopener'>Libretro docs</a>.
 					</p>
 					<p style='padding-bottom:8px'>To use default "flat" image set:
-						<a
-							href='https://github.com/Valent-in/retropad-editor/releases/download/v0.6/overlay-images.zip'>
+						<a href='https://github.com/Valent-in/retropad-editor/releases/download/v0.6/overlay-images.zip'>
 							download</a> and unpack archive, place config in folder with images.
 					</p>
 				</div>
@@ -608,5 +603,21 @@
 
 	</div>
 </body>
+<script>
+	let _STEP = 0.01;
+	document.getElementById('x-range').setAttribute("step", _STEP)
+	document.getElementById('y-range').setAttribute("step", _STEP)
+	document.getElementById('w-range').setAttribute("step", _STEP)
+	document.getElementById('h-range').setAttribute("step", _STEP)
+	document.getElementById('range_mod_property').setAttribute("step", _STEP)
+	document.getElementById('alpha_mod_property').setAttribute("step", _STEP)
+	document.getElementById('saturate_pct_property').setAttribute("step", _STEP)
+	document.getElementById('initial-aspect-width').setAttribute("step", _STEP)
+	document.getElementById('initial-aspect-height').setAttribute("step", _STEP)
+	document.getElementById('display-width').setAttribute("step", _STEP)
+	document.getElementById('display-height').setAttribute("step", _STEP)
+	document.getElementById('screenshot-width').setAttribute("step", _STEP)
+	document.getElementById('screenshot-height').setAttribute("step", _STEP)
+</script>
 
 </html>
