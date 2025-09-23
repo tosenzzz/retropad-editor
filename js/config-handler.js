@@ -563,8 +563,8 @@ function ConfigHandler() {
 
     if (image)
       if (image.search(/\s/) == -1)
-        arr.push(`${overlayXX_descYY}_overlay = img/${image}`);
-      else arr.push(`${overlayXX_descYY}_overlay = img/"${image}"`);
+        arr.push(`${overlayXX_descYY}_overlay = ${image}`);
+      else arr.push(`${overlayXX_descYY}_overlay = "${image}"`);
 
     if (Array.isArray(addLines))
       addLines.forEach((line) => {
