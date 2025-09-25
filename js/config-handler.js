@@ -124,6 +124,7 @@ function ConfigHandler() {
 
   // Extracts config data for gamepad visualisation (shape, position, size, image, for each button)
   this.buildPadFromConfig = function () {
+    _cleanUp();
     if (!_strings) return;
 
     let buttons = [];

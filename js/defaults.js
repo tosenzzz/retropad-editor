@@ -1,7 +1,7 @@
 {
-	let indent = new RegExp(/\n\s+/g);
+  let indent = new RegExp(/\n\s+/g);
 
-	let imageNames = `1.png
+  let imageNames = `1.png
 		2-button_gba_modified.png
 		2-button_gba.png
 		2-button.png
@@ -73,6 +73,7 @@
 		L_right.png
 		L_right_smaller.png
 		L_smaller.png
+		load_state.png
 		no-analog.png
 		overlay-A.png
 		overlay-B.png
@@ -94,6 +95,7 @@
 		rotate.png
 		R.png
 		R_smaller.png
+		save_state.png
 		select_psx.png
 		select_rounded_big.png
 		select_square_text.png
@@ -127,12 +129,16 @@
 		Y.png
 		Z_down.png
 		Z_down_smaller.png
-		Z.png`.replace(indent, '\n').split('\n');
+		Z.png`
+    .replace(indent, '\n')
+    .split('\n');
 
-	window.defaultImagesObj = {};
-	imageNames.forEach((el) => { defaultImagesObj[el] = 'img/' + el });
+  window.defaultImagesObj = {};
+  imageNames.forEach((el) => {
+    defaultImagesObj[el] = 'img/' + el;
+  });
 
-	window.defaultConfigString = `overlays = 4
+  window.defaultConfigString = `overlays = 4
 		overlay0_name = "landscape"
 		overlay0_full_screen = true
 		overlay0_normalized = true
@@ -328,7 +334,7 @@
 		overlay3_desc14_saturate_pct = 0.65
 		overlay3_desc14_movable = true`.replace(indent, '\n');
 
-	window.buttonCommandList = `up
+  window.buttonCommandList = `up
 		down
 		left
 		right
@@ -370,5 +376,7 @@
 		pause_toggle
 		screenshot
 		reset
-		exit_emulator`.replace(indent, '\n').replace('#', '');
+		exit_emulator`
+    .replace(indent, '\n')
+    .replace('#', '');
 }

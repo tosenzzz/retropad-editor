@@ -25,6 +25,7 @@
 		<div id='header'>
 			<button class='important' onclick='showFileDialog()'>Import • Export</button>
 			<button class='danger button--normal-size' onclick='showDialog("reset-dialog", true)'>Reset</button>
+			<span id='updated_at'>by tosenzzz 2025-09-25 10:54:49</span>
 			<span id='header__caption'><img src='img/retroarch-icon.svg'>RetroPad Editor</span>
 		</div>
 
@@ -40,12 +41,12 @@
 					<br>
 					<div class='toolbar-group__checkboxes'>
 						<div class='checkbox-wrapper'>
-							<input type='checkbox' id='chk-show-shapes' autocomplete='off'>
+							<input type='checkbox' id='chk-show-shapes' autocomplete='off' checked>
 							<label for='chk-show-shapes'>Show shapes</label>
 						</div>
 
 						<div class='checkbox-wrapper'>
-							<input type='checkbox' id='chk-show-names' autocomplete='off' checked>
+							<input type='checkbox' id='chk-show-names' autocomplete='off'>
 							<label for='chk-show-names'>Show names</label>
 						</div>
 
@@ -91,7 +92,7 @@
 			<div id='editor-container' class='notranslate' translate='no'>
 				<div id='gamepad-container'>
 					<div id='gamepad-container__scroll-frame'>
-						<div id='screenpad' class='hide-offscreen'>
+						<div id='screenpad' class='hide-offscreen show-borders hide-names'>
 							<div id='game-screenshot'></div>
 						</div>
 					</div>
